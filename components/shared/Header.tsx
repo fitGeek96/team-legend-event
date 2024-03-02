@@ -1,6 +1,8 @@
+import { SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import Button from "../ui/Button";
 
 const Header = () => {
   return (
@@ -14,7 +16,13 @@ const Header = () => {
             alt="Team Legend Logo"
           />
         </Link>
-        <div className="flex w-32 justify-end gap-3"></div>
+        <div className="flex w-32 justify-end gap-3">
+          <SignedOut>
+            <Button>
+              <Link href={"/sign-in"}>Login</Link>
+            </Button>
+          </SignedOut>
+        </div>
       </div>
     </header>
   );
